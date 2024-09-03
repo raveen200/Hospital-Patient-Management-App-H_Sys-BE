@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HospitalMangementApp.Data
 {
-    public class AppDbContext : DbContext
+
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-        }
-
-        public DbSet<Patient> Patients { get; set; }
-
+        public DbSet<PatientDTO> Patients { get; set; }
     }
+
+
+
+
 }
