@@ -1,4 +1,5 @@
 ﻿using HospitalMangementApp.Models;
+using HospitalMangementApp.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace HospitalMangementApp.Data

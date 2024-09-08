@@ -1,6 +1,8 @@
 using AutoMapper;
 using HospitalMangementApp;
 using HospitalMangementApp.Data;
+using HospitalMangementApp.Models.DTO;
+using HospitalMangementApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,9 +15,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 
-IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
-builder.Services.AddSingleton(mapper);
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+/*var configuration = new MapperConfiguration(cfg =>
+{
+    cfg.CreateMap<PatientDTO, Patient>();
+    cfg.CreateMap<Patient, PatientDTO>();
+});
+// only during development, validate your mappings; remove it before release
+#if DEBUG
+configuration.AssertConfigurationIsValid();
+#endif
+// use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself
+var mapper = configuration.CreateMapper(); */
 
 
 

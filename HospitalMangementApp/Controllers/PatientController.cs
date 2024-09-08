@@ -2,6 +2,7 @@
 using HospitalMangementApp.Data;
 using HospitalMangementApp.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HospitalMangementApp.Controllers
 {
@@ -18,15 +19,25 @@ namespace HospitalMangementApp.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
-        public IActionResult Post([FromBody] PatientDTO patientDTO)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PatientDTO>>> GetAllPaitents()
         {
-            var exisitingPatient = _db.Patients.FirstOrDefault(m => m.NIC == patientDTO.NIC);
-            if (exisitingPatient == null)
+            var PatientsData = await _db.Patients.Select(x => new PatientDTO
             {
-                return BadRequest();
+                P_ID = x.P_ID,
+                NIC = x.NIC,
+                Name = x.Name,
+                Gender = x.Gender,
+                Address = x.Address,
+
             }
+            ).ToListAsync();
+
+            return Ok(PatientsData);
+
         }
+
+
 
 
 
