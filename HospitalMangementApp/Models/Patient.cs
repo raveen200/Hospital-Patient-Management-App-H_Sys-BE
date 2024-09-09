@@ -10,11 +10,11 @@ namespace HospitalMangementApp.Models
         public string? NIC { get; set; }
         public string? Name { get; set; }
         [Required]
-        public StatusEnum Status { get; set; }
+        public StatusEnum Status { get; set; } = StatusEnum.Active;
         [Required]
         public GenderEnum Gender { get; set; }
         [Required]
-        public DateOnly UpdatedOn { get; set; } 
+        public DateOnly UpdatedOn { get; set; }
         [Required]
         public int Age { get; set; }
         public string? Address { get; set; }

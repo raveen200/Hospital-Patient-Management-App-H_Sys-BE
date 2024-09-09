@@ -27,6 +27,8 @@ namespace HospitalMangementApp.Controllers
                 P_ID = x.P_ID,
                 NIC = x.NIC,
                 Name = x.Name,
+                Status = x.Status,
+                PhoneNumber = x.PhoneNumber,
 
 
             }
@@ -45,6 +47,7 @@ namespace HospitalMangementApp.Controllers
                 Name = patient.Name,
                 Gender = patient.Gender,
                 Address = patient.Address,
+                PhoneNumber = patient.PhoneNumber
             };
 
             _db.Patients.Add(newPatient);

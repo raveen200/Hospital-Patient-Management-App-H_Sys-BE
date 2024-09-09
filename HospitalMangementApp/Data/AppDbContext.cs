@@ -10,6 +10,8 @@ namespace HospitalMangementApp.Data
         public DbSet<Patient> Patients { get; set; }
     }
 
+    
+
 
 
 
