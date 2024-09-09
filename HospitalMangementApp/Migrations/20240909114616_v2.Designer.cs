@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalMangementApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240903120717_v1")]
-    partial class v1
+    [Migration("20240909114616_v2")]
+    partial class v2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,23 +36,32 @@ namespace HospitalMangementApp.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GenderEnum")
+                    b.Property<int>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("MedicalDeatils")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("NIC")
-                        .HasColumnType("int");
+                    b.Property<string>("NIC")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("UpdatedOn")
+                        .HasColumnType("date");
 
                     b.HasKey("P_ID");
 

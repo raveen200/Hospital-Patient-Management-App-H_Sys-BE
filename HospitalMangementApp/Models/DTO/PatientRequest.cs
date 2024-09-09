@@ -2,14 +2,12 @@
 
 namespace HospitalMangementApp.Models.DTO
 {
-    public class PatientDTO
+    public class PatientRequest
     {
-        public int P_ID { get; set; }
-        public int? NIC { get; set; }
+        
+        public string? NIC { get; set; }
         public string? Name { get; set; }
-        public GenderEnum Gender { get; set; }
+        public GenderEnum Gender { get; set; } 
         public string? Address { get; set; }
-       
-
     }
 }

@@ -33,23 +33,32 @@ namespace HospitalMangementApp.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GenderEnum")
+                    b.Property<int>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("MedicalDeatils")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("NIC")
-                        .HasColumnType("int");
+                    b.Property<string>("NIC")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("UpdatedOn")
+                        .HasColumnType("date");
 
                     b.HasKey("P_ID");
 

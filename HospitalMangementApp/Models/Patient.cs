@@ -7,10 +7,16 @@ namespace HospitalMangementApp.Models
     {
         [Key]
         public int P_ID { get; set; }
-        public int? NIC { get; set; }
+        public string? NIC { get; set; }
         public string? Name { get; set; }
         [Required]
+        public StatusEnum Status { get; set; }
+        [Required]
         public GenderEnum Gender { get; set; }
+        [Required]
+        public DateOnly UpdatedOn { get; set; } 
+        [Required]
+        public int Age { get; set; }
         public string? Address { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
