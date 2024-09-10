@@ -29,6 +29,8 @@ namespace HospitalMangementApp.Controllers
                 Name = x.Name,
                 Status = x.Status,
                 PhoneNumber = x.PhoneNumber,
+                UpdatedOn = x.UpdatedOn,
+                Age = x.Age
 
 
             }
@@ -47,7 +49,10 @@ namespace HospitalMangementApp.Controllers
                 Name = patient.Name,
                 Gender = patient.Gender,
                 Address = patient.Address,
-                PhoneNumber = patient.PhoneNumber
+                PhoneNumber = patient.PhoneNumber,
+                UpdatedOn = patient.UpdatedOn,
+                Age = patient.Age
+
             };
 
             _db.Patients.Add(newPatient);

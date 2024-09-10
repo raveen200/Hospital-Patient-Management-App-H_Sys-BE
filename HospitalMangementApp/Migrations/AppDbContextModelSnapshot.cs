@@ -57,8 +57,8 @@ namespace HospitalMangementApp.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("UpdatedOn")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("UpdatedOn")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("P_ID");
 

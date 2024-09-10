@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalMangementApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240909153556_v1")]
-    partial class v1
+    [Migration("20240910071454_v2")]
+    partial class v2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,8 +60,8 @@ namespace HospitalMangementApp.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("UpdatedOn")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("UpdatedOn")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("P_ID");
 

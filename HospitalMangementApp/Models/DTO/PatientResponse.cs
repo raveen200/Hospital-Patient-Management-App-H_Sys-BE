@@ -9,7 +9,7 @@ namespace HospitalMangementApp.Models.DTO
         public string? Name { get; set; }
         public int Age { get; set; }
         public StatusEnum Status { get; set; }
-        public DateOnly UpdatedOn { get; set; }
+        public DateTime UpdatedOn { get; set; }
         public string? PhoneNumber { get; set; }
 
 

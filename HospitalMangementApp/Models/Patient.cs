@@ -14,7 +14,7 @@ namespace HospitalMangementApp.Models
         [Required]
         public GenderEnum Gender { get; set; }
         [Required]
-        public DateOnly UpdatedOn { get; set; }
+        public DateTime UpdatedOn { get; set; }
         [Required]
         public int Age { get; set; }
         public string? Address { get; set; }
