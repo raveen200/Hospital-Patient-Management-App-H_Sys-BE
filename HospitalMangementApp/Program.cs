@@ -17,8 +17,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(MyAllowSpecificOrigins,
                           policy =>
                           {
-                              policy.WithOrigins("https://localhost:5173", "http://localhost:5173"
-                                                  )
+                              policy.WithOrigins("https://localhost:5173", "http://localhost:5173", "https://hospital-mgt.netlify.app")
                                                   .AllowAnyHeader()
                                                   .AllowAnyMethod();
                           });

@@ -19,7 +19,7 @@ namespace HospitalMangementApp.Controllers
 
 
 
-       [HttpGet]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<PatientResponse>>> GetAllPaitents()
         {
             var PatientsData = await _db.Patients.Select(x => new PatientResponse
@@ -61,7 +61,68 @@ namespace HospitalMangementApp.Controllers
             return Ok(newPatient);
         }
 
-        
+        [HttpPut("{id}")]
+        public async Task<ActionResult<PatientRequest>> UpdatePatient(int id, PatientUpdateRequest patient)
+        {
+            var patientData = await _db.Patients.FirstOrDefaultAsync(x => x.P_ID == id);
+
+            if (patientData == null)
+            {
+                return NotFound();
+            }
+
+            patientData.NIC = patient.NIC;
+            patientData.Name = patient.Name;
+            patientData.Gender = patient.Gender;
+            patientData.Address = patient.Address;
+            patientData.PhoneNumber = patient.PhoneNumber;
+            patientData.UpdatedOn = patient.UpdatedOn;
+            patientData.Age = patient.Age;
+            patientData.Status = patient.Status;
+            patientData.Email = patient.Email;
+            patientData.MedicalDeatils = patient.MedicalDeatils;
+
+            try
+            {
+                await _db.SaveChangesAsync();
+
+                return Ok(patientData);
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return BadRequest();
+            }
+
+
+
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePatient(int id)
+        {
+            var patientData = await _db.Patients.FirstOrDefaultAsync(x => x.P_ID == id);
+
+            if (patientData == null)
+            {
+                return NotFound();
+            }
+
+            _db.Patients.Remove(patientData);
+            await _db.SaveChangesAsync();
+
+            return Ok();
+        }
+
+
+
+
+
+
+
+
+
+
 
 
 
