@@ -40,6 +40,38 @@ namespace HospitalMangementApp.Controllers
 
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PatientGetIdResponse>> GetByIdPatient(int id)
+        {
+            var patientData = await _db.Patients.FindAsync(id);
+
+            if (patientData == null)
+            {
+                return NotFound();
+            }
+
+            var response = new PatientGetIdResponse
+            {
+                P_ID = patientData.P_ID,
+                NIC = patientData.NIC,
+                Name = patientData.Name,
+                Status = patientData.Status,
+                PhoneNumber = patientData.PhoneNumber,
+                UpdatedOn = patientData.UpdatedOn,
+                Age = patientData.Age,
+                Email = patientData.Email,
+                MedicalDeatils = patientData.MedicalDeatils,
+                Gender = patientData.Gender,
+                Address = patientData.Address
+            };
+
+            return Ok(response);
+        }
+
+
+
+
+
         [HttpPost]
         public async Task<ActionResult<PatientRequest>> PostPatient(PatientRequest patient)
         {
