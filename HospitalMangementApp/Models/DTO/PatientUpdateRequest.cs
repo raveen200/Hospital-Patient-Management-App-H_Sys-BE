@@ -4,6 +4,7 @@ namespace HospitalMangementApp.Models.DTO
 {
     public class PatientUpdateRequest
     {
+        public int P_ID { get; set; }
         public string? NIC { get; set; }
         public string? Name { get; set; }
         public GenderEnum Gender { get; set; }

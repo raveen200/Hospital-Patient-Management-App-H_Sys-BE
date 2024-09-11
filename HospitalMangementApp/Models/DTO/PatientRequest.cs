@@ -4,6 +4,7 @@ namespace HospitalMangementApp.Models.DTO
 {
     public class PatientRequest
     {
+
         
         public string? NIC { get; set; }
         public string? Name { get; set; }

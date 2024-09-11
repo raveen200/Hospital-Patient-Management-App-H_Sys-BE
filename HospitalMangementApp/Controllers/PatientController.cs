@@ -93,10 +93,28 @@ namespace HospitalMangementApp.Controllers
             return Ok(newPatient);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<PatientRequest>> UpdatePatient(int id, PatientUpdateRequest patient)
+
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePatient(int id)
         {
             var patientData = await _db.Patients.FirstOrDefaultAsync(x => x.P_ID == id);
+
+            if (patientData == null)
+            {
+                return NotFound();
+            }
+
+            _db.Patients.Remove(patientData);
+            await _db.SaveChangesAsync();
+
+            return Ok("Delete Complete");
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdatePatient(PatientUpdateRequest patient)
+        {
+            var patientData = await _db.Patients.FirstOrDefaultAsync(x => x.P_ID == patient.P_ID);
 
             if (patientData == null)
             {
@@ -114,37 +132,13 @@ namespace HospitalMangementApp.Controllers
             patientData.Email = patient.Email;
             patientData.MedicalDeatils = patient.MedicalDeatils;
 
-            try
-            {
-                await _db.SaveChangesAsync();
-
-                return Ok(patientData);
-
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                return BadRequest();
-            }
-
-
-
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> DeletePatient(int id)
-        {
-            var patientData = await _db.Patients.FirstOrDefaultAsync(x => x.P_ID == id);
-
-            if (patientData == null)
-            {
-                return NotFound();
-            }
-
-            _db.Patients.Remove(patientData);
             await _db.SaveChangesAsync();
-
             return Ok();
         }
+
+
+
+
 
 
 
