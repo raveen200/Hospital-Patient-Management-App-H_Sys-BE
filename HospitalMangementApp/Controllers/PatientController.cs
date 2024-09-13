@@ -1,6 +1,7 @@
 ﻿using HospitalMangementApp.Data;
 using HospitalMangementApp.Models;
 using HospitalMangementApp.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,7 +20,7 @@ namespace HospitalMangementApp.Controllers
 
 
 
-        [HttpGet]
+        [HttpGet ,Authorize]
         public async Task<ActionResult<IEnumerable<PatientResponse>>> GetAllPaitents()
         {
             var PatientsData = await _db.Patients.Select(x => new PatientResponse
@@ -40,7 +41,7 @@ namespace HospitalMangementApp.Controllers
 
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public async Task<ActionResult<PatientGetIdResponse>> GetByIdPatient(int id)
         {
             var patientData = await _db.Patients.FindAsync(id);
@@ -72,7 +73,7 @@ namespace HospitalMangementApp.Controllers
 
 
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public async Task<ActionResult<PatientRequest>> PostPatient(PatientRequest patient)
         {
             var newPatient = new Patient
@@ -95,7 +96,7 @@ namespace HospitalMangementApp.Controllers
 
 
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public async Task<ActionResult> DeletePatient(int id)
         {
             var patientData = await _db.Patients.FirstOrDefaultAsync(x => x.P_ID == id);
@@ -111,7 +112,7 @@ namespace HospitalMangementApp.Controllers
             return Ok("Delete Complete");
         }
 
-        [HttpPut]
+        [HttpPut, Authorize]
         public async Task<ActionResult> UpdatePatient(PatientUpdateRequest patient)
         {
             var patientData = await _db.Patients.FirstOrDefaultAsync(x => x.P_ID == patient.P_ID);
@@ -135,21 +136,6 @@ namespace HospitalMangementApp.Controllers
             await _db.SaveChangesAsync();
             return Ok();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
