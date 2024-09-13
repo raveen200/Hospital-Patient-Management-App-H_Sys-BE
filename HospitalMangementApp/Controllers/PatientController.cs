@@ -20,7 +20,7 @@ namespace HospitalMangementApp.Controllers
 
 
 
-        [HttpGet ,Authorize]
+        [HttpGet, Authorize]
         public async Task<ActionResult<IEnumerable<PatientResponse>>> GetAllPaitents()
         {
             var PatientsData = await _db.Patients.Select(x => new PatientResponse
@@ -136,6 +136,21 @@ namespace HospitalMangementApp.Controllers
             await _db.SaveChangesAsync();
             return Ok();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
