@@ -21,9 +21,9 @@ namespace HospitalMangementApp.Controllers
 
 
         [HttpGet, Authorize]
-        public async Task<ActionResult<IEnumerable<PatientResponse>>> GetAllPaitents()
+        public async Task<ActionResult<IEnumerable<PatientGetIdResponse>>> GetAllPaitents()
         {
-            var PatientsData = await _db.Patients.Select(x => new PatientResponse
+            var PatientsData = await _db.Patients.Select(x => new PatientGetIdResponse
             {
                 P_ID = x.P_ID,
                 NIC = x.NIC,
@@ -31,7 +31,12 @@ namespace HospitalMangementApp.Controllers
                 Status = x.Status,
                 PhoneNumber = x.PhoneNumber,
                 UpdatedOn = x.UpdatedOn,
-                Age = x.Age
+                Age = x.Age,
+                Email = x.Email,
+                MedicalDeatils = x.MedicalDeatils,
+                Gender = x.Gender,
+                Address = x.Address
+
 
 
             }
