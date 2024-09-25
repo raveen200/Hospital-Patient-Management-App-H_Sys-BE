@@ -1,6 +1,6 @@
 # HospitalManagementApp
 
-This is a Hospital Management Application built with **React.js** and **.NET Core**. The application is designed to efficiently manage patient data and validate their state.
+This Hospital Management Application was built with **React.js** and **.NET Core**. The application is designed to manage patient data and validate their state efficiently.
 
 ## Features
 
