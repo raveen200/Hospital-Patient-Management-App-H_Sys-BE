@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalMangementApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240913174956_JWT")]
-    partial class JWT
+    [Migration("20241003135007_v3")]
+    partial class v3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

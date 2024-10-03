@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HospitalMangementApp.Migrations
 {
     /// <inheritdoc />
-    public partial class JWT : Migration
+    public partial class v3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
